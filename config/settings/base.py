@@ -43,6 +43,7 @@ DJANGO_APPS = [
 
     # Admin
     'django.contrib.admin',
+    'channels',
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
@@ -285,3 +286,13 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+        "ROUTING": "config.routing.channel_routing",
+    },
+}
