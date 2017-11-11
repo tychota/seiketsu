@@ -4,6 +4,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from graphene_django.views import GraphQLView
+from seiketsu.graphql.schema import schema
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
@@ -17,7 +19,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-
+    url(r'graphql', GraphQLView.as_view(graphiql=True, schema=schema))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

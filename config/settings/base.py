@@ -46,10 +46,12 @@ DJANGO_APPS = [
     'channels',
 ]
 THIRD_PARTY_APPS = [
+    'channels_api',
     'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'graphene_django',
 ]
 
 # Apps specific for this project go here.
