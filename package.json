@@ -1,0 +1,14 @@
+{
+  "name": "seiketsu",
+  "version": "0.0.0",
+  "description": "Seiketsu (Standardization): Establish methods within the company that will ensure the effective continuation of organization, orderliness and cleanliness",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tycho Tatitscheff",
+  "license": "MIT"
+}
