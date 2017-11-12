@@ -6,20 +6,19 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 from graphene_django.views import GraphQLView
 from seiketsu.graphql.schema import schema
+from seiketsu.contrib.views import ReactAppView
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
-    url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
+    url(r'^$', ReactAppView.as_view()),
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
 
     # User management
-    url(r'^users/', include('seiketsu.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-    url(r'graphql', GraphQLView.as_view(graphiql=True, schema=schema))
+    url(r'^graphql/', GraphQLView.as_view(graphiql=True, schema=schema))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
